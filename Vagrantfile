@@ -14,18 +14,8 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
 
   
-  config.vm.define "debian" do |debian|
-    debian.vm.box = "debian/stretch64"
-  end
+  config.vm.box = "centos/7"
 
-  config.vm.define "centos" do |centos|
-    centos.vm.box = "centos/7"
-  end
-
-  config.vm.define "ubuntu" do |ubuntu|
-    ubuntu.vm.box = "ubuntu/xenial64"
-  end
-  
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
