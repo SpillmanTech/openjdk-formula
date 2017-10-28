@@ -1,0 +1,14 @@
+{% set openjdk = salt.grains.filter_by({
+    'default': {
+        'pkgs': ['openjdk'],
+        'service': 'openjdk',
+        'conf_file': '/etc/openjdk/openjdk.conf',
+        'config': {
+            'key': 'value',
+        },
+    },
+    'Debian': {
+    },
+    'RedHat': {
+    },
+}, grain='os_family', merge=salt.pillar.get('openjdk:overrides'), base='default') %}

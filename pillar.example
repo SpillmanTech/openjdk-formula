@@ -1,0 +1,7 @@
+# -*- mode: yaml -*-
+openjdk:
+  overrides:
+    pkg: openjdk
+    conf_file: /usr/local/etc/openjdk/openjdk.conf
+  config:
+    key: othervalue
