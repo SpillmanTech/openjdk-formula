@@ -1,0 +1,32 @@
+openjdk:
+  selected_version: 11
+  group: root
+  alt_priority:
+  versions:
+    8:
+      version: 8
+      pkgs: ['openjdk']
+    10:
+      version: 10
+      release: 0.2
+      hash: 19aef61b38124481863b1413dce1855f
+      build: 13
+      java_home: /usr/lib/java
+      java_symlink: /usr/bin/java
+      java_real_base: /usr/lib/jvm
+      java_real_home: /usr/lib/jvm/jdk-10.0.2
+      java_realcmd: /usr/lib/jvm/jdk-10.0.2/bin/java
+      javac_symlink: /usr/bin/javac
+      javac_realcmd: /usr/lib/jvm/jdk-10.0.2/bin/javac
+    11:
+      version: 11
+      release: 0.1
+      build: 13
+      license: GPL
+      java_home: /usr/lib/java
+      java_symlink: /usr/bin/java
+      java_real_base: /usr/lib/jvm
+      java_real_home: /usr/lib/jvm/jdk-11.0.1
+      java_realcmd: /usr/lib/jvm/jdk-11.0.1/bin/java
+      javac_symlink: /usr/bin/javac
+      javac_realcmd: /usr/lib/jvm/jdk-11.0.1/bin/javac

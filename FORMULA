@@ -1,7 +1,7 @@
 name: openjdk
 os: RedHat, CentOS, Ubuntu, Debian
 os_family: RedHat, Debian
-version: 201710
+version: 201910
 release: 1
 summary: Install the openjdk package
 description: Install the openjdk package

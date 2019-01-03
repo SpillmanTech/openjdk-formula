@@ -1,11 +1,24 @@
-{% set openjdk = salt.grains.filter_by({
-    'default': {
-        'pkgs': ['openjdk'],
-    },
+{# collect defaults by version #}
+{% import_yaml "openjdk/defaults.yaml" as defaults %}
+
+{# set custom V8 options #}
+{% set openjdk_v8_opts = salt.grains.filter_by({
     'Debian': {
         'pkgs': ['openjdk-8-jre'],
     },
     'RedHat': {
         'pkgs': ['java-1.8.0-openjdk'],
     },
-}, grain='os_family', merge=salt.pillar.get('openjdk:overrides'), base='default') %}
+}, grain='os_family') %}
+
+{# update defaults with custom V8 opts #}
+{% do defaults.openjdk.versions.8.update( openjdk_v8_opts ) %}
+
+{# merge pillar overrides with defaults #}
+{% set openjdk = salt['pillar.get']( 'openjdk:overrides', default=defaults.openjdk, merge=True) %}
+
+{# push the version-specific settings for this run to the top level #}
+{% do openjdk.update(openjdk.versions[openjdk.selected_version]) %}
+
+{# for backwards compat with env.sls, which was copied from sun-java-formula #}
+{% set java = openjdk %}
